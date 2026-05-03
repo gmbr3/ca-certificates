@@ -58,6 +58,8 @@ Recommends:     ca-certificates-mozilla
 # created by C code.
 Obsoletes:      java-ca-certificates = 1
 Provides:       java-ca-certificates = %{version}-%{release}
+# symlink now created here
+Obsoletes:      ca-certificates-steamtricks
 BuildArch:      noarch
 
 %description
