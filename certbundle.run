@@ -40,3 +40,8 @@ if ! test -e $destdir/etc/ssl/ca-bundle.pem && ! test -L $destdir/etc/ssl/ca-bun
     install -d -m 0755 $destdir/etc/ssl
     ln -s ../../var/lib/ca-certificates/ca-bundle.pem $destdir/etc/ssl/ca-bundle.pem
 fi
+if ! test -e $destdir/var/lib/ca-certificates/pem/ca-certificates.crt && ! test -L $destdir/var/lib/ca-certificates/pem/ca-certificates.crt; then
+    [ -z "$verbose" ] || echo "restoring $destdir/var/lib/ca-certificates/pem/ca-certificates.crt ..."
+    install -d -m 0755 $destdir/var/lib/ca-certificates/pem
+    ln -s ../ca-bundle.pem $destdir/var/lib/ca-certificates/pem/ca-certificates.crt
+fi
